@@ -89,20 +89,17 @@ export default class MessageContainer extends React.PureComponent {
   }
 
   render() {
-    if (this.props.messages.length === 0) {
-      return <View style={styles.container} />;
-    }
     return (
       <View style={styles.container}>
-        <FlatList
-          ref={(ref) => (this.flatListRef = ref)}
-          keyExtractor={(item) => item._id}
-          enableEmptySections
-          automaticallyAdjustContentInsets={false}
-          removeClippedSubviews={Platform.OS === 'android'}
-          inverted={this.props.inverted}
-          {...this.props.listViewProps}
-          data={this.props.messages}
+          <FlatList
+              ref={(ref) => (this.flatListRef = ref)}
+              keyExtractor={(item) => item._id}
+              enableEmptySections
+              automaticallyAdjustContentInsets={false}
+              removeClippedSubviews={Platform.OS === 'android'}
+              inverted={this.props.inverted}
+              {...this.props.listViewProps}
+              data={this.props.messages}
           style={styles.listStyle}
           contentContainerStyle={styles.contentContainerStyle}
           renderItem={this.renderRow}
